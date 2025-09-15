@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-#certificates=
-#declarations=
+certificates_site=https://fsa.gov.ru/opendata/7736638268-rds
+declarations_site=
 #
 #
 #maketemp() {
