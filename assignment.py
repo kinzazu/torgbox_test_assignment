@@ -7,6 +7,8 @@ import re
 import json
 import tempfile
 import sys
+import signal
+
 
 # сертификаты соответствия;
 certificates_page = "https://fsa.gov.ru/opendata/7736638268-rss/"
@@ -113,8 +115,8 @@ def save_data(type, url):
     with tempfile.TemporaryDirectory() as temp_dir:
         for row in csv_data:
             file_name = f"{type}-{arch_date}-{str(file_count):0>8}.json"
-            with open(f'{temp_dir}/{file_name}', 'w') as f:
-                json.dump(dict(row), f, indent=2)
+            with open(f'{temp_dir}/{file_name}', 'w', encoding="utf-8") as f:
+                json.dump(dict(row), f,ensure_ascii=False, indent=2)
             file_dict.update({file_name: json.dumps(dict(row))})
 
             if file_count % 1000 == 0:
