@@ -83,7 +83,7 @@ process_section() {
    cd "$temp_dir" || exit
 
    # Extract archive
-   if ! 7zz x "$original_path" > /dev/null;  then
+   if ! 7z x "$original_path" > /dev/null;  then
        echo "Error: Failed to extract $filename"
        rm -rf "$temp_dir"
        return 1
